@@ -7,12 +7,9 @@ crypto.collect do |key,value|
     arr[key]=value.split("$")[1].to_f
 end
 
-
-
-
 def crypto_max(arr,crypto)
   key = arr.key(arr.values.max)
-  puts "la crypto qui a la plus grosse valeur est #{key}:  #{crypto[key]}"
+  puts "la crypto qui a la plus grande valeur est #{key}:  #{crypto[key]}"
 end
 
 def crypto_min(arr,crypto)
@@ -22,17 +19,16 @@ end
 
 def cherche_mot_coin(crypto)
   nombre=crypto.select{|key,value| key.match?'coin'}.length
-  puts "le nombre de crypto qui contient le mot coin es #{nombre}"
+  puts "le nombre de crypto qui contient le mot coin est #{nombre}"
 end
 
 def devise_inf_6000(arr,crypto)
   cryp=Hash.new
   devise=arr.select{|key,value| value<6000}
-  devise.collect{|key,value| cryp[key]=crypto[key] }
+  devise.collect{|key,value| cryp[key]=crypto[key]}
   puts cryp
   return cryp
 end
-
 
 def cours_max_dans_inf_6000(arr,crypto)
   cryp=devise_inf_6000(arr,crypto)
